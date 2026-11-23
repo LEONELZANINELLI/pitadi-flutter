@@ -22,6 +22,7 @@ O projeto adapta os requisitos e as telas de referência do trabalho **Saborê**
 | Flutter | 3.50.1 stable usado na validação automatizada; mínimo declarado 3.47.0 |
 | Dart | >= 3.13.0 e < 4.0.0; validado com Dart 3.14.0; utilize o SDK incluído no Flutter |
 | Java | JDK 17 para Android |
+| Android build | Gradle 9.5.0, Android Gradle Plugin 9.3.1 e Kotlin 2.4.20, conforme o template do Flutter 3.50.1 |
 | `http` | ^1.6.0, chamadas HTTP e cliente injetável para testes |
 | `material_ui` | ^1.11.1, biblioteca oficial de componentes Material e localização pt-BR |
 | `flutter_test` / `flutter_lints` | Testes e análise estática |

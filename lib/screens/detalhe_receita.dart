@@ -59,7 +59,7 @@ class DetalheReceita extends StatelessWidget {
                     if (receita.dificuldadeTexto != null)
                       receita.dificuldadeTexto!,
                     if (receita.avaliacaoTexto != null)
-                      '★ ${receita.avaliacaoTexto} / 5',
+                      'Avaliação ${receita.avaliacaoTexto} / 5',
                   ].join(' · '),
                   style: const TextStyle(color: CoresApp.secundario),
                 ),

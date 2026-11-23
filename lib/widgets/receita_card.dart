@@ -73,15 +73,27 @@ class ReceitaCard extends StatelessWidget {
                           ),
                           if (receita.avaliacaoTexto != null) ...[
                             const SizedBox(height: 6),
-                            Text(
-                              '★ ${receita.avaliacaoTexto} / 5',
-                              semanticsLabel:
-                                  'Avaliação ${receita.avaliacaoTexto} de 5',
-                              style: const TextStyle(
-                                color: CoresApp.verde,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w700,
-                              ),
+                            Row(
+                              children: [
+                                const Icon(
+                                  Icons.star_rounded,
+                                  size: 14,
+                                  color: CoresApp.verde,
+                                ),
+                                const SizedBox(width: 4),
+                                Flexible(
+                                  child: Text(
+                                    '${receita.avaliacaoTexto} / 5',
+                                    semanticsLabel:
+                                        'Avaliação ${receita.avaliacaoTexto} de 5',
+                                    style: const TextStyle(
+                                      color: CoresApp.verde,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ],

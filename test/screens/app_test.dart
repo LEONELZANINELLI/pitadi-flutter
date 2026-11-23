@@ -64,7 +64,7 @@ void main() {
     );
     await tester.pumpAndSettle();
     expect(find.text('Salva'), findsOneWidget);
-    await tester.pageBack();
+    await tester.tap(find.byTooltip('Voltar'));
     await tester.pumpAndSettle();
     expect(find.text('Resultados para “pizza”'), findsOneWidget);
     expect(chamadas, 2); // Detalhe reaproveita o objeto completo.
@@ -117,6 +117,7 @@ void main() {
       }),
     );
     await tester.ensureVisible(find.text('Tentar novamente'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Tentar novamente'));
     await tester.pumpAndSettle();
     expect(find.text('Classic Margherita Pizza'), findsOneWidget);
@@ -163,10 +164,20 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    await tester.ensureVisible(find.text('Classic Margherita Pizza'));
+    await tester.scrollUntilVisible(
+      find.text('Classic Margherita Pizza'),
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Classic Margherita Pizza'));
     await tester.pumpAndSettle();
-    await tester.scrollUntilVisible(find.text('Voltar às receitas'), 250);
+    await tester.scrollUntilVisible(
+      find.text('Voltar às receitas'),
+      250,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.pumpAndSettle();
     expect(tester.takeException(), isNull);
   });
 }

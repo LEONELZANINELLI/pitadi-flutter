@@ -87,15 +87,15 @@ class _ReceitasState extends State<Receitas> {
         onAcao: _controller.listar,
       );
     }
-    return ListView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      itemCount: receitas.length,
-      itemBuilder: (context, index) => ReceitaCard(
-        receita: receitas[index],
-        controller: _controller,
-        onAbrir: () => _abrir(receitas[index]),
-      ),
+    return Column(
+      children: [
+        for (final receita in receitas)
+          ReceitaCard(
+            receita: receita,
+            controller: _controller,
+            onAbrir: () => _abrir(receita),
+          ),
+      ],
     );
   }
 
@@ -113,13 +113,17 @@ class _ReceitasState extends State<Receitas> {
             children: [
               Icon(Icons.restaurant_menu, color: CoresApp.primario, size: 24),
               SizedBox(width: 8),
-              Text(
-                'pitadi',
-                style: TextStyle(
-                  color: CoresApp.primario,
-                  fontSize: 29,
-                  fontWeight: FontWeight.w800,
-                  letterSpacing: -1,
+              Flexible(
+                child: Text(
+                  'pitadi',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: CoresApp.primario,
+                    fontSize: 29,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: -1,
+                  ),
                 ),
               ),
             ],

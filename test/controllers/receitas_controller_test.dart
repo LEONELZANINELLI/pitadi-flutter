@@ -13,17 +13,20 @@ import '../fixtures.dart';
 void main() {
   test('inicia uma vez e ignora operações concorrentes', () async {
     final resposta = Completer<http.Response>();
+    final iniciouRequisicao = Completer<void>();
     var chamadas = 0;
     final controller = ReceitasController(
       ReceitasService(
         client: MockClient((_) {
           chamadas++;
+          iniciouRequisicao.complete();
           return resposta.future;
         }),
       ),
     );
     addTearDown(controller.dispose);
     final inicio = controller.iniciar();
+    await iniciouRequisicao.future;
     await controller.iniciar();
     await controller.pesquisar('pizza');
     expect(chamadas, 1);

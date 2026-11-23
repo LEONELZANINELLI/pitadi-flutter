@@ -1,11 +1,11 @@
 {
-    "name": "app",
-    "short_name": "app",
+    "name": "Pitadi",
+    "short_name": "Pitadi",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "appproject",
+    "background_color": "#FBF8F4",
+    "theme_color": "#FBF8F4",
+    "description": "Pitadi: um toque de sabor em cada receita.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

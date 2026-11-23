@@ -1,5 +1,6 @@
 import 'package:app/models/receita.dart';
 import 'package:flutter_test/flutter_test.dart';
+
 import '../fixtures.dart';
 
 void main() {
@@ -29,11 +30,8 @@ void main() {
       isNull,
     );
     expect(
-      Receita.fromJson({
-        'id': 1,
-        'prepTimeMinutes': 0,
-        'cookTimeMinutes': 0,
-      }).tempoTotal,
+      Receita.fromJson({'id': 1, 'prepTimeMinutes': 0, 'cookTimeMinutes': 0})
+          .tempoTotal,
       0,
     );
   });

@@ -1,27 +1,21 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'Receitas.dart';
+import 'services/receitas_service.dart';
 import 'tema.dart';
 
 class Principal extends StatelessWidget {
-  const Principal({super.key});
+  final ReceitasService? service;
+  const Principal({super.key, this.service});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Pitadi',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        scaffoldBackgroundColor: CoresApp.fundo,
-        colorScheme: ColorScheme.fromSeed(seedColor: CoresApp.primario),
-        appBarTheme: const AppBarTheme(
-          backgroundColor: CoresApp.fundo,
-          foregroundColor: CoresApp.texto,
-          elevation: 0,
-        ),
-      ),
-      home: const Receitas(),
-    );
-  }
+  Widget build(BuildContext context) => MaterialApp(
+    title: 'Pitadi',
+    debugShowCheckedModeBanner: false,
+    locale: const Locale('pt', 'BR'),
+    supportedLocales: const [Locale('pt', 'BR')],
+    localizationsDelegates: GlobalMaterialLocalizations.delegates,
+    theme: criarTema(),
+    home: Receitas(service: service),
+  );
 }
